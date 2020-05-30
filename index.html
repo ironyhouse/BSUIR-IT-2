@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h2>Можиловский Артем Сергеевич</h2>
+        <h2>ИПР1 Вариант 2</h2>
+        <h2>Номер зачетной книжки 79105018</h2>
+        <h2>Группа 791051</h2>
+
+        <div>
+            <h3 class="task">
+                Методы сжатия информации. Функция хеширования SHA-2. Текст для сжатия читать из файла. Дайджест сообщения вывести на экран в 16 с/сч. Программа не должна
+                быть реализована как консольное приложение.
+            </h3>
+        </div>
+    </header>
+    <main>
+        <section>
+            <h1 class="title">Хеширование SHA-2</h1>
+            <textarea id='inputText'></textarea>
+            <textarea id='textOut' class='out' disabled></textarea>
+            <input class="get_file" type="file" onchange="readFileEncode(this)">
+            <br>
+            <button id='encodeButton'>HASH</button>
+        </section>
+    </main>
+    <script src="./index.js"></script>
+</body>
+</html>
