@@ -1,1 +1,1 @@
-# BSUIR-IT-2
+# BSUIR-TI-2
