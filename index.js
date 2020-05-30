@@ -1,28 +1,25 @@
-function SHA () {
-    this.encode = function (inputText) {
-        const text = inputText;
+this.encode = function (inputText) {
 
-        async function digestMessage(message) {
-            const msgUint8 = new TextEncoder().encode(message);                           // кодировка (utf-8)
-            const hashBuffer = await crypto.subtle.digest("SHA-256", msgUint8);           // хешировать сообщение
-            const hashArray = Array.from(new Uint8Array(hashBuffer));                     // преобразовать в байтовый массив
-            const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join(''); // преобразовать байты в шестнадцатеричную строку
-            return hashHex;
-        }
+    async function digestMessage(message) {
+        const msgUint8 = new TextEncoder().encode(message);                           // кодировка (utf-8)
+        const hashBuffer = await crypto.subtle.digest("SHA-256", msgUint8);           // хешировать сообщение
+        const hashArray = Array.from(new Uint8Array(hashBuffer));                     // преобразовать в байтовый массив
+        const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join(''); // преобразовать байты в шестнадцатеричную строку
+        return hashHex;
+    }
 
-        (async function () {
-            let digestHex_256 = await digestMessage(text);
-            digestHex = digestHex_256;
-        })();
+    (async function () {
+        textOut.value = await digestMessage(inputText);
+    })();
 
-        return digestHex;
-    };
-}
+    return this;
+};
+
 
 
 //Вызов функции
 document.querySelector('#encodeButton').addEventListener('click', () => {
-    textOut.value = new SHA().encode(inputText.value);
+    encode(inputText.value);
 });
 
 
